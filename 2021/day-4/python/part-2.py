@@ -110,10 +110,8 @@ def main():
 		r += 1
 
 	# process the input numbers
-	processed_numbers = []
 	lwin = None
 	for n in numbers:
-		processed_numbers.append(n)
 		mark_numbers(n)
 
 		# there can be multiple wins when a number is called
