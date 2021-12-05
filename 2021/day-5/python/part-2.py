@@ -17,8 +17,7 @@ def str_coord_2_tuple(coord: list) -> tuple:
 	return (int(x1), int(y1)), (int(x2), int(y2))
 
 # store events as parsed x,y tuples
-hydro_vents = []
-for xy in lines: hydro_vents.append(str_coord_2_tuple(xy))
+hydro_vents = [str_coord_2_tuple(xy) for xy in lines]
 
 # prepare grid with max x,y
 max_cord = int(max(max(map(max, hydro_vents))))
