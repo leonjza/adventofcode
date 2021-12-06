@@ -9,7 +9,7 @@ def sequence(days: int):
 	"""
 
 	while days > 0:
-		print(f' fish on day {days} => {len(fish)}')
+		# print(f' fish on day {days} => {len(fish)}')
 
 		f_idx = 0
 		while f_idx < len(fish):
