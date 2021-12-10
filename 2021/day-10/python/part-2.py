@@ -37,9 +37,7 @@ def completion_score(l: str) -> int:
 	completion.reverse()
 
 	s = 0
-	for c in completion:
-		s = s * 5
-		s+= SCORE[c]
+	for c in completion: s = s * 5 + SCORE[c]
 
 	return s
 
