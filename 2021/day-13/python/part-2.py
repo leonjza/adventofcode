@@ -48,21 +48,13 @@ def fold_grid(gr: set, axis: str, where: int) -> list:
 	ng = set()
 
 	for x, y in gr:
-		# print(f'x, y, where => {x},{y},{where}')
 		if axis == 'x': # left
 			if x < where: ng.add((x, y))
-			else: # x is more
-				# .#.#..##.#
-				# 1234567890
-				# x,y = 6,2 | where = 5 || 2 * 5 - 6
-				# print(f'(x) {x} >= {where} so adding x offset = {2 * where - x},{y}')
-				ng.add((2 * where - x, y))
+			else: ng.add((2 * where - x, y))
 
 		if axis == 'y': # up
 			if y < where: ng.add((x, y))
-			else:
-				# print(f'(y) {y} >= {where} so adding y offset = {x},{2 * where - y}')
-				ng.add((x, 2 * where - y))
+			else: ng.add((x, 2 * where - y))
 
 	return ng
 
@@ -73,12 +65,9 @@ def main():
 	dots, folds = get_instructions()
 	g = set(dots)
 
-	for fold in folds:
-		g = fold_grid(g, *fold)
-		break
+	for fold in folds: g = fold_grid(g, *fold)
 
-	# pg(g)
-	print(f' there are {len(g)} visible dots')
+	pg(g)
 
 
 if __name__ == '__main__':
