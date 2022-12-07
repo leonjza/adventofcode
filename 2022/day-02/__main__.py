@@ -57,7 +57,7 @@ def should_play(p1: int, want: str) -> int:
         if is_a_win(p1, x) and want == 'Z':
             return x
 
-    return ROCK
+    # return ROCK
 
 
 s = []
