@@ -1,11 +1,11 @@
-with open('input.txt') as f:
-    lines = f.readlines()
+import aoc
+
+lines = aoc.parse(__file__)
 
 elves = [0]
 i = 0
 
 for line in lines:
-    line = line.strip()
     if line == '':
         i += 1
         elves.append(0)
@@ -15,7 +15,7 @@ for line in lines:
 
 # part 1
 print(max(elves))
-elves.sort(reverse=True)
 
 # part 2
+elves.sort(reverse=True)
 print(sum(elves[:3]))
