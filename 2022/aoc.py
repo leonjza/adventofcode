@@ -1,6 +1,26 @@
+import json
 import sys
 from pathlib import Path
+from pprint import pprint
 from typing import List
+
+from rich import print as rprint
+
+
+def dump(*stuff, plain: bool = False):
+    """
+        A wrapper to dump stuff.
+
+        :param plain:
+        :param stuff:
+        :return:
+    """
+
+    for thing in stuff:
+        if plain:
+            pprint(thing)
+        else:
+            rprint(thing)
 
 
 def parse(p: str, sample: bool = False) -> List[str]:
