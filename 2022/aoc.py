@@ -1,8 +1,7 @@
-import json
 import sys
 from pathlib import Path
 from pprint import pprint
-from typing import List
+from typing import List, Tuple
 
 from rich import print as rprint
 
@@ -47,6 +46,21 @@ def parse(p: str, sample: bool = False) -> List[str]:
             return [li.strip() for li in f.readlines()]
 
     raise Exception(f'Could not read {"sample" if sample else "input"} data')
+
+
+def digit_grid(source: list) -> Tuple[List[list[int]], int, int]:
+    """
+        Parses line input to produce a nested array of digits.
+
+        :param source:
+        :return:
+    """
+
+    g = []
+    for line in source:
+        g.append([int(d) for d in line])
+
+    return g, len(g), len(g[0])
 
 
 def prepare_day(day: str):
