@@ -52,15 +52,15 @@ def digit_grid(source: list) -> Tuple[List[list[int]], int, int]:
     """
         Parses line input to produce a nested array of digits.
 
+        Returns the grid, total rows and total columns.
+
         :param source:
         :return:
     """
 
-    g = []
-    for line in source:
-        g.append([int(d) for d in line])
+    grid = [[int(d) for d in line] for line in source]
 
-    return g, len(g), len(g[0])
+    return grid, len(grid), len(grid[0])
 
 
 def prepare_day(day: str):
