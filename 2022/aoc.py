@@ -1,4 +1,6 @@
+import builtins
 import sys
+from builtins import print
 from pathlib import Path
 from pprint import pprint
 from typing import List, Tuple
@@ -61,6 +63,19 @@ def digit_grid(source: list) -> Tuple[List[list[int]], int, int]:
     grid = [[int(d) for d in line] for line in source]
 
     return grid, len(grid), len(grid[0])
+
+
+def patch_print():
+    """
+        Monkey patch print to stfu.
+
+        :return:
+    """
+
+    def stfu(*args, **kwargs):
+        pass
+
+    builtins.print = stfu
 
 
 def prepare_day(day: str):
