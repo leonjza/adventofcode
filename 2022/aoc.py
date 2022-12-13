@@ -3,7 +3,7 @@ import sys
 from builtins import print
 from pathlib import Path
 from pprint import pprint
-from typing import List, Tuple
+from typing import List, Tuple, Callable
 
 from rich import print as rprint
 
@@ -24,13 +24,15 @@ def dump(*stuff, plain: bool = False):
             rprint(thing)
 
 
-def parse(p: str, sample: bool = False) -> List[str]:
+def parse(p: str, sample: bool = False, process: Callable[[str], str] = None) -> List[str]:
     """
         Returns well formatted data for input.txt
         p is typically __file__ from the caller.
 
         setting the sample flag searches for sample input instead
+        process can be a lambda from the caller
 
+        :param process:
         :param sample:
         :param p:
         :return:
@@ -45,7 +47,7 @@ def parse(p: str, sample: bool = False) -> List[str]:
             continue
 
         with open(target, 'r') as f:
-            return [li.strip() for li in f.readlines()]
+            return [process(li) if process is not None else li.strip() for li in f.readlines()]
 
     raise Exception(f'Could not read {"sample" if sample else "input"} data')
 
