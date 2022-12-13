@@ -1,9 +1,9 @@
 import aoc
 
-lines = aoc.parse(__file__, sample=False)
+lines = aoc.parse(__file__, sample=False, process=lambda x: x.split(' '))
 
 # [('D', 1), ('U', 1)]
-instructions = [(x, int(y)) for (x, y) in [line.split(' ') for line in lines]]
+instructions = [(x, int(y)) for (x, y) in [line for line in lines]]
 
 
 def sign(s: int) -> int:
