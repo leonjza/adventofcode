@@ -119,7 +119,8 @@ def part2():
 
 
 if __name__ == '__main__':
-    print('running {day}')
+    part1()
+    part2()
 """)
 
 
